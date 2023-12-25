@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mark Predictor ML App</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans MT', sans-serif;
+            background-image: url('static/images/background.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+
+        #header {
+            display: flex;
+            
+            align-items: center;
+            padding: 20px;
+            text-align: left;
+            background-color: rgba(9, 13, 53, 0.541);
+            padding: 20px;
+        }
+
+        #header img {
+            max-width: 87px;
+            max-height: 87px;
+            margin-right: 20px;
+        }
+
+        #header div {
+            display: flex;
+            flex-direction: column; /* Display h3 and h5 vertically */
+            align-items: flex-start; /* Align h3 and h5 to the right */
+        }
+
+        #header h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        #header h5 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .login {
+            background-color: rgba(9, 13, 53, 0.324);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cccccc6d;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #footer {
+            background-color: #34495e;
+            padding: 12px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #footer p {
+            margin: 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <img src="static/images/College_logo.gif" alt="College Logo">
+        <div>
+            <h3>INDIAN INSTITUTE OF INFORMATION TECHNOLOGY ALLAHABAD</h3>
+            <h5> CGPA PREDICTOR (ML)</h5>
+        </div>
+    </div>
+
+    <div class="login">
+        <form action="{{ url_for('predict')}}" method="post">
+            <label for="studyHours">Study Hours:</label>
+            <input type="number" id="studyHours" name="studyHours" required>
+
+            <label for="preparationDays">Days to Start Preparation:</label>
+            <input type="number" id="preparationDays" name="preparationDays" required>
+
+            <label>Relationship Status:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="relationshipStatus" value="single" checked> Single
+                </label>
+                <label>
+                    <input type="radio" name="relationshipStatus" value="nonSingle"> Non-Single
+                </label>
+            </div>
+
+            <div class="button" align="center"><a class="button"  target="_blank" rel="nofollow noopener">
+                <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict CGPA</strong></button></a>
+            </div>
+        </form>
+
+        <div>
+            <p>{{ prediction_text }}</p>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>Machine Learning Project by Nishant Narjinary</p>
+        <p>Use Of Multiple Linear Reggression on Public Survey Data</p>
+    </div>
+
+</body>
+
+</html>
