@@ -1,6 +1,7 @@
 # CGPA_Predictor_ML
 Predicts the CGPA Based on the survey data from college
-![Uploading Screenshot (96).png…]()
+![Screenshot (96)](https://github.com/HeyyyBooo/CGPA_Predictor_ML/assets/154744741/36e862cc-be1a-4e89-8904-f10db529c5e6)
+
 
 Step 1 : Install Anaconda Navigator
 
